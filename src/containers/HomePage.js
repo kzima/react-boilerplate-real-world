@@ -9,7 +9,7 @@ class HomePage extends Component {
     super();
 
     this.state = {
-      username: 1
+      username: ""
     }
   }
 
@@ -27,7 +27,7 @@ class HomePage extends Component {
   render() {
     const {user} = this.props;
     return <form onSubmit={this.search}>
-      Github username <input type="text" value={this.state.value} onChange={this.changed} /><button type="submit">Search</button>
+      Github username <input type="text" value={this.state.username} onChange={this.changed} /><button type="submit">Search</button>
       {user && <GithubUser user={user} />}
     </form>   
   }
