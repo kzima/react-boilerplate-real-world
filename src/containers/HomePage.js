@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import { GithubUser } from '../components';
 import { fetchUser } from '../actions'
 
 class HomePage extends Component {
@@ -23,21 +24,11 @@ class HomePage extends Component {
       event.preventDefault();
   }
 
-  renderUser() {
-    if (!this.props.user) return;
-    const {name, location} = this.props.user;
-    return (
-       <ul>
-          <li>Name: {name}</li>
-          <li>Location: {location}</li>
-      </ul>
-    )
-  }
-
   render() {
+    const {user} = this.props;
     return <form onSubmit={this.search}>
       Github username <input type="text" value={this.state.value} onChange={this.changed} /><button type="submit">Search</button>
-      {this.renderUser()}
+      {user && <GithubUser user={user} />}
     </form>   
   }
 }

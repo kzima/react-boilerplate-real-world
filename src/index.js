@@ -14,6 +14,8 @@ import api from './middleware/api';
 import App from './App';
 import rootReducer from './reducers'
 
+import './app.css';
+
 // Create a history of your choosing (we're using a browser history in this case)
 const history = createHistory()
 
